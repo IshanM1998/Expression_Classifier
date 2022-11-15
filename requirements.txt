@@ -1,0 +1,4 @@
+fastai
+pathlib
+gradio
+numpy
