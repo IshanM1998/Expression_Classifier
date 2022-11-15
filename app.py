@@ -4,9 +4,9 @@ from fastai.vision.all import *
 import gradio as gr
 
 #|export
-#import pathlib
-#temp = pathlib.PosixPath
-#pathlib.PosixPath = pathlib.WindowsPath
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
 
 
 #|export
@@ -14,7 +14,7 @@ learn = load_learner('expression_classifier.pkl')
 
 #|export
 
-categories = ('Angry','Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise')
+categories = ('Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise')
 
 def classify_image(img):
     pred, idx, probs = learn.predict(img)
