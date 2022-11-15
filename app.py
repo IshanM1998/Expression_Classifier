@@ -4,13 +4,16 @@ from fastai.vision.all import *
 import gradio as gr
 
 #|export
+# import pathlib
+# temp = pathlib.PosixPath
+# pathlib.PosixPath = pathlib.WindowsPath
 import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 
 #|export
-learn = load_learner('expression_classifier.pkl')
+learn = load_learner('resnet18_emotion_detection1.pkl')
 
 #|export
 
