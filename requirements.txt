@@ -1,4 +1,4 @@
-fastai.vision.all
+fastai
 gradio
 pathlib
 numpy
