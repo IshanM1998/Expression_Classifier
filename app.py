@@ -26,7 +26,7 @@ def classify_image(img):
     pred, idx, probs = learn.predict(img)
     return dict(zip(categories, map(float, probs)))
 
-image_in = gr.inputs.Image(shape=(256,256))
+image_in = gr.inputs.Image(shape=(256,256), type='numpy')
 label = gr.outputs.Label()
 examples = ['angry.jpg','disgust.jpg', 'fear.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprise.jpg']
 
