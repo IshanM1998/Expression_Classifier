@@ -26,12 +26,12 @@ def classify_image(img):
     pred, idx, probs = learn.predict(img)
     return dict(zip(categories, map(float, probs)))
 
-image_in = gr.inputs.Image(shape=(256,256),type="pil")
+image_in = gr.inputs.Image(shape=(256,256))
 label = gr.outputs.Label()
 examples = ['angry.jpg','disgust.jpg', 'fear.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprise.jpg']
 
-img = np.array(image_in)
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# img = np.array(image_in)
+gray = cv2.cvtColor(image_in, cv2.COLOR_BGR2GRAY)
 
 img_pil = Image.fromarray(gray)
 img_pil = img_pil.resize((48,48))
