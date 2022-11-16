@@ -23,8 +23,8 @@ learn = load_learner('resnet18_emotion_detection1.pkl')
 categories = ('Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise')
 
 def classify_image(img_in):
-    img = np.array(img_in)
     img = img.resize((200,200))
+    img = np.array(img_in)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
