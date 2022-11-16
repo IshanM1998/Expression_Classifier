@@ -2,3 +2,4 @@ fastai
 gradio
 pathlib
 numpy
+cv2
