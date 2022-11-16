@@ -3,3 +3,4 @@ gradio
 pathlib
 numpy
 opencv-python
+Pillow
