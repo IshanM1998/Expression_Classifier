@@ -27,7 +27,7 @@ def classify_image(img_in):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
-    f = 1.05
+    f = 1.1
     faces =()
 
     # Detect faces
