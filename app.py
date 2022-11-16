@@ -32,11 +32,10 @@ def classify_image(img_in):
     # Detect faces
     f = 1.05
     faces =()
-    s_x = 1
 
     # Detect faces
     while len(faces)<1 and f>1.01:
-        f*= 0.98
+        f*= 0.97
         if f<1:
             f = 1.01
         faces = face_cascade.detectMultiScale(gray, f, 1)
@@ -44,8 +43,7 @@ def classify_image(img_in):
     # Draw rectangle around the faces and crop the faces
     for (x, y, w, h) in faces:
         # cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
-        faces = gray[y+5:y + h+5 , x:x +w]
-        s_x = (x+w)/(y+h)
+        faces = gray[y+10:y + h+10 , x:x +w]
         
     # Convert cv2 image, which is an array to a PIL image format for ease of use    
     if len(faces) > 0:
@@ -55,7 +53,7 @@ def classify_image(img_in):
 
     # img_pil.thumbnail((48,48))
     
-    img_pil = img_pil.resize((round(s_x*48),48))
+    img_pil = img_pil.resize((48,48))
     img_arr = np.array(img_pil) 
 
     pred, idx, probs = learn.predict(PILImage.create(img_arr))
