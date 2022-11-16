@@ -41,7 +41,7 @@ def classify_image(img_in):
     # Draw rectangle around the faces and crop the faces
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
-        faces = gray[y:y + round((h+w)/2) , x:x +round((h+w)/2)]
+        faces = gray[y:y + h , x:x +w]
         
     # Convert cv2 image, which is an array to a PIL image format for ease of use    
     if len(faces) > 0:
