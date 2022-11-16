@@ -43,6 +43,7 @@ def classify_image(img_in):
     for (x, y, w, h) in faces:
         # cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
         faces = gray[y+5:y + h+5 , x:x +w]
+        s_x = (x+w)/(y+h)
         
     # Convert cv2 image, which is an array to a PIL image format for ease of use    
     if len(faces) > 0:
@@ -51,7 +52,7 @@ def classify_image(img_in):
         img_pil = Image.fromarray(gray)
 
     # img_pil.thumbnail((48,48))
-    s_x = (x+w)/(y+h)
+    
     img_pil = img_pil.resize((s_x*48,48))
     img_arr = np.array(img_pil) 
 
