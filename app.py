@@ -23,9 +23,9 @@ learn = load_learner('resnet18_emotion_detection1.pkl')
 categories = ('Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise')
 
 def classify_image(img_in):
-    img = img.resize((200,200))
-    img = np.array(img_in)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = img_in.resize((200,200))
+    img_in_arr = np.array(img)
+    gray = cv2.cvtColor(img_in_arr, cv2.COLOR_BGR2GRAY)
 
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
 
@@ -41,7 +41,7 @@ def classify_image(img_in):
 
     # Draw rectangle around the faces and crop the faces
     for (x, y, w, h) in faces:
-        cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
+        # cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
         faces = gray[y:y + h , x:x +w]
         
     # Convert cv2 image, which is an array to a PIL image format for ease of use    
