@@ -2,4 +2,4 @@ fastai
 gradio
 pathlib
 numpy
-cv2
+opencv-python
