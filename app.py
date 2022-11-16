@@ -32,6 +32,8 @@ def classify_image(img_in):
     # Detect faces
     f = 1.05
     faces =()
+    s_x = 0
+    
     # Detect faces
     while len(faces)<1 and f>1.01:
         f*= 0.98
