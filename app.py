@@ -62,4 +62,4 @@ label = gr.outputs.Label()
 examples = ['angry.jpg','disgust.jpg', 'fear.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprise.jpg']
 
 intf = gr.Interface(fn=classify_image, inputs=image_in, outputs=label, examples=examples)
-intf.launch(share=True)
+intf.launch()
