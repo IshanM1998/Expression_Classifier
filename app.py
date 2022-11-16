@@ -31,10 +31,11 @@ label = gr.outputs.Label()
 examples = ['angry.jpg','disgust.jpg', 'fear.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprise.jpg']
 
 # img = np.array(image_in)
-gray = cv2.cvtColor(image_in, cv2.COLOR_BGR2GRAY)
+#gray = cv2.cvtColor(image_in, cv2.COLOR_BGR2GRAY)
 
-img_pil = Image.fromarray(gray)
-img_pil = img_pil.resize((48,48))
+img_pil = Image.fromarray(image_in)
+#img_pil = img_pil.resize((48,48))
+image = gr.Image(img_pil)
 
 intf = gr.Interface(fn=classify_image, inputs=img_pil, outputs=label, examples=examples)
 intf.launch()
