@@ -55,7 +55,7 @@ def classify_image(img_in):
 
     # img_pil.thumbnail((48,48))
     
-    img_pil = img_pil.resize((s_x*48,48))
+    img_pil = img_pil.resize((round(s_x*48),48))
     img_arr = np.array(img_pil) 
 
     pred, idx, probs = learn.predict(PILImage.create(img_arr))
