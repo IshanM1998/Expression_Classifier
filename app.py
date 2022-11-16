@@ -24,6 +24,7 @@ categories = ('Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise')
 
 def classify_image(img_in):
     img = np.array(img_in)
+    img = img.resize((200,200))
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
@@ -33,7 +34,7 @@ def classify_image(img_in):
     faces =()
     # Detect faces
     while len(faces)<1 and f>1.01:
-        f*= 0.97
+        f*= 0.98
         if f<1:
             f = 1.01
         faces = face_cascade.detectMultiScale(gray, f, 1)
@@ -56,7 +57,7 @@ def classify_image(img_in):
     pred, idx, probs = learn.predict(PILImage.create(img_arr))
     return dict(zip(categories, map(float, probs)))
 
-image_in = gr.inputs.Image(type='pil', shape=(192,192))
+image_in = gr.inputs.Image(type='pil')
 label = gr.outputs.Label()
 examples = ['angry.jpg','disgust.jpg', 'fear.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprise.jpg']
 
