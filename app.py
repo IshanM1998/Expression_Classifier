@@ -23,7 +23,6 @@ learn = load_learner('resnet18_emotion_detection1.pkl')
 categories = ('Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise')
 
 def classify_image(img_in):
-    img = img_in.resize((256,256))
     img_in_arr = np.array(img)
     gray = cv2.cvtColor(img_in_arr, cv2.COLOR_BGR2GRAY)
 
@@ -52,7 +51,6 @@ def classify_image(img_in):
         img_pil = Image.fromarray(gray)
 
     # img_pil.thumbnail((48,48))
-    
     img_pil = img_pil.resize((48,48))
     img_arr = np.array(img_pil) 
 
