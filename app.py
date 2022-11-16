@@ -44,6 +44,7 @@ def classify_image(img_in):
 
     # img_pil.thumbnail((48,48))
     img_pil = img_pil.resize((48,48))
+    img = np.array(img_pil) 
 
     pred, idx, probs = learn.predict(img_pil)
     return dict(zip(categories, map(float, probs)))
